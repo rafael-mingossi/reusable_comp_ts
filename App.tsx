@@ -6,6 +6,7 @@ import SmallText from "./src/components/Text/Small";
 import RegularText from "./src/components/Text/Regular";
 import BigText from "./src/components/Text/Big";
 import TextInput from "./src/components/Inputs/TextInput";
+import RegularButton from "./src/components/Buttons";
 
 export default function App() {
   const [email, setEmail] = useState("");
@@ -14,9 +15,6 @@ export default function App() {
 
   return (
     <Layout>
-      <SmallText>Open up !</SmallText>
-      <RegularText>Open up !</RegularText>
-      <BigText style={{ marginBottom: 20 }}>Open up !</BigText>
       <TextInput
         label="Email Address"
         icon="email-variant"
@@ -43,6 +41,7 @@ export default function App() {
         isPassword={true}
         style={{ marginBottom: 20 }}
       />
+      <RegularButton onPress={() => alert("Clicked")}>Submit</RegularButton>
       <StatusBar style="auto" />
     </Layout>
   );

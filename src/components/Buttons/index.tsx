@@ -5,22 +5,32 @@ import styled from "styled-components/native";
 
 //Colours
 import { colours } from "../../../utils/colours";
-const { primary } = colours;
+const { primary, accent } = colours;
 
 //Types
 import { ButtonProps } from "./types";
+import RegularText from "../Text/Regular";
 
 //Styled Components
-const StyledView = styled.View`
-  flex: 1;
-  padding: 40px 25px 25px 25px;
-  background-color: ${primary};
+const ButtonView = styled.TouchableOpacity`
+  background-color: ${accent};
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  border-radius: 15px;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `;
 
 const RegularButton: FunctionComponent<ButtonProps> = (props) => {
-  return <StyledView style={props.style}>{props.children}</StyledView>;
+  return (
+    <ButtonView style={props.style} onPress={props.onPress}>
+      <RegularText style={[{ color: primary }, props.textStyle]}>
+        {props.children}
+      </RegularText>
+    </ButtonView>
+  );
 };
 
 export default RegularButton;
